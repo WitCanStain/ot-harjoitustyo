@@ -1,0 +1,104 @@
+commit b88c13374b24ca18527bc66f705d0c0ae9f23dab
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 18:43:14 2020 +0200
+
+    muutos taas
+
+ tiedostoja/file2.txt             | 0
+ tiedostoja/{file1.txt => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit f5eaa2fa8f08b225c6b77314541a25bae1be3479
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 18:39:33 2020 +0200
+
+    muokattu file3
+
+ tiedostoja/file3.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit ddd21ffa2394d0fb6285d0853e95c4f1f4a10536
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 18:37:54 2020 +0200
+
+    tehty tiedostoja
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 8811636fc68f217acdd23e788ae27bc0f901cd41
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 18:25:31 2020 +0200
+
+    tehty muutoksia
+
+ eka.txt    | 4 ++--
+ kolmas.txt | 1 +
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit f1ad9b47192fbaa4a74295b4627ac69062452fda
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 18:23:35 2020 +0200
+
+    poistettiin tiedost.txt ja lisättiin eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4e3606feca74aec77044853a537aae2cf94360d3
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 18:22:38 2020 +0200
+
+    poistettiin toinen
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 68dbd592d3efee37a41d43763ee11d42ce2aa6aa
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 18:20:27 2020 +0200
+
+    positettu ja lisätty vähän
+
+ tiedosto.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 42b87095e981e928c4b03968ea556e8dad85516e
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 18:18:34 2020 +0200
+
+    lisätty paljon tekstiä
+
+ tiedosto.txt | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+commit 6dfe2c35629e95c062807d9b0045ee6354644ba3
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 15:50:36 2020 +0200
+
+    kolmas luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f3928ba2da6c53d8ed554047956a3959910043f7
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 15:47:37 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 82d9a004a4bfcd0a249fd3fcc3ac0a913a0d5e05
+Author: ruby <ruben.drayton@gmail.com>
+Date:   Tue Nov 3 15:44:10 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
