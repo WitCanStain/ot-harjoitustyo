@@ -1,2 +1,5 @@
-päivä	aika	mitä tein
-10.11.	1	Määrittelydokumentti
+# Työaikakirjanpito
+
+|päivä	|aika	|mitä tein|
+|:----:	|:----:	|:----:|
+|10.11.	|1	|Määrittelydokumentti|
