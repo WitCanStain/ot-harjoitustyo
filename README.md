@@ -1,9 +1,10 @@
-# testi vain
+# ssmonitor - Simple System Monitor
 
-ja tässä on *lisää* tekstiä, joka on osittain **lihavoitu**
+Sovelluksen tarkoituksena on auttaa käyttäjää seuraamaan systeeminsä erinäisiä mittareita, kuten prosessorikuormitusta, vapaata muistitilaa, ynnä muuta. 
 
-[komentorivi](https://github.com/WitCanStain/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-[gitlogi](https://github.com/WitCanStain/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-uusi positetus
 
-Tässä on [linkki](https://github.com/WitCanStain/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md) vaatimusmäärittelyyn.
+# Dokumentaatio
+
+[Vaatimusmäärittely](https://github.com/WitCanStain/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[Työaikakirjanpito](https://github.com/WitCanStain/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
