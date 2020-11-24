@@ -6,4 +6,5 @@ Sovelluksen tarkoituksena on auttaa käyttäjää seuraamaan systeeminsä erinä
 # Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/WitCanStain/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
 [Työaikakirjanpito](https://github.com/WitCanStain/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
