@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="MaksukorttiTest" time="0.036" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="MaksukorttiTest" time="0.035" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.8+10"/>
@@ -59,14 +59,14 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="MaksukorttiTest" name="konstruktoriAsettaaSaldonOikein" time="0.035"/>
+  <testcase classname="MaksukorttiTest" name="konstruktoriAsettaaSaldonOikein" time="0.026"/>
   <testcase classname="MaksukorttiTest" name="syoMaukkaastiEiVieSaldoaNegatiiviseksi" time="0"/>
   <testcase classname="MaksukorttiTest" name="VoiOstaaEdullisenLounaan" time="0"/>
   <testcase classname="MaksukorttiTest" name="NegatiivinenSummaEiMuutaArvoa" time="0"/>
   <testcase classname="MaksukorttiTest" name="syoEdullisestiEiVieSaldoaNegatiiviseksi" time="0"/>
   <testcase classname="MaksukorttiTest" name="kortinSaldoEiYlitaMaksimiarvoa" time="0"/>
-  <testcase classname="MaksukorttiTest" name="syoEdullisestiVahentaaSaldoaOikein" time="0.001"/>
+  <testcase classname="MaksukorttiTest" name="syoEdullisestiVahentaaSaldoaOikein" time="0"/>
   <testcase classname="MaksukorttiTest" name="syoMaukkaastiVahentaaSaldoaOikein" time="0"/>
-  <testcase classname="MaksukorttiTest" name="VoiOstaaMaukkaanLounaan" time="0"/>
+  <testcase classname="MaksukorttiTest" name="VoiOstaaMaukkaanLounaan" time="0.009"/>
   <testcase classname="MaksukorttiTest" name="kortilleVoiLadataRahaa" time="0"/>
 </testsuite>
