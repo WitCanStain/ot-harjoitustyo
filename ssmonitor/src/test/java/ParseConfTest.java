@@ -1,7 +1,6 @@
 
 
-import java.util.ArrayList;
-import javafx.scene.Node;
+
 import org.junit.Before;
 import org.junit.Test;
 import ssmonitor.file.ParseConf;

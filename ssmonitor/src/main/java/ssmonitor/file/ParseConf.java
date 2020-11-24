@@ -37,10 +37,10 @@ public class ParseConf {
         if (confLine.startsWith("//")) {
             return 0;
         } else if (confLine.startsWith("$cpu_usage")) {
-            System.out.println("hoi");
+            
             GuiComponent cpu_usage = new GuiComponent(); 
             guiNodes.add(cpu_usage.lineChart());
-            System.out.println("hei");
+            
             return 1;
         } else {
             return -1;

@@ -2,22 +2,22 @@
 package ssmonitor.gui;
 
 import ssmonitor.sysinfo.SysInfo;
-import javafx.application.Application;
+
 import javafx.application.Platform;
-import javafx.scene.Scene;
+
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.stage.Stage;
+
 
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.GridPane;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadLocalRandom;
+
 import java.util.concurrent.TimeUnit;
 
 
