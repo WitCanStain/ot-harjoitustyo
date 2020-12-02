@@ -23,11 +23,11 @@ Perusversio tarjoaa seuraavanlaisia toimintoja:
 	- uptime eli kuinka pitkään järjestelmä on ollut käynnissä
 	- järjestelmän nimi
 	- top x lista tällä hetkellä käynnissä olevista prosesseista.
-
+	- [lisäksi tehty mahdollisuus määrittää näkymäkomponteille nimiä / asettaa tekstiä ikkunaan]
 
 ## Jatkokehitysideoita
 
-- lisää parametrejä, kuten järjestelmän ip-osoite, prosessorin käyttöaste, levymuistin tila, järjestelmän kellonaika, top x lista tällä hetkellä käynnissä olevista prosesseista.
+- lisää parametrejä, kuten järjestelmän ip-osoite, prosessorin käyttöaste [tehty], levymuistin tila [tehty], järjestelmän kellonaika, top x lista tällä hetkellä käynnissä olevista prosesseista.
 
 - käyttäjä voi päättää käynnistetäänkö sovellus omassa ikkunassaan vai piiretäänkö se suoraan X11:n root-ikkunaan.
 - käyttäjä voi päättää komponenttien värin.
