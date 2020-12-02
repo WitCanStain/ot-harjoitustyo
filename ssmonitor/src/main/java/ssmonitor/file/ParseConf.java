@@ -15,7 +15,7 @@ public class ParseConf {
     private String fileName;
     private static ArrayList<Node> guiNodes = new ArrayList<>();
     private static int statusFlag;
-    private static List<String> sysInfoComponents = Arrays.asList("cpu_usage","system_memory");
+    private static List<String> sysInfoComponents = Arrays.asList("cpu_usage", "system_memory");
 
     public static void readConf(final String fileName) {
         try {
@@ -31,11 +31,11 @@ public class ParseConf {
                 }
             }
 
-              reader.close();
-            } catch (FileNotFoundException e) {
+            reader.close();
+        } catch (FileNotFoundException e) {
             System.out.println("Please choose a valid filename.");  
             statusFlag = -2; // quit
-            }
+        }
     }
 
     public static int parseLine(final String line) {
@@ -47,26 +47,20 @@ public class ParseConf {
             String sysInfoComponent = null;
             String textLabel = null;
             
-            String[] args = line.substring(1).split("\\|",0);
-            
+            String[] args = line.substring(1).split("\\|", 0);
             // checking whether all of the parameters are valid inputs
             for (String parameter : args) {
-                
-                
                 if (sysInfoComponents.contains(parameter)) {
-                    
                     sysInfoComponent = parameter;
                 } else if ((parameter.startsWith("%"))) {
                     textLabel = parameter.substring(1);
                 } else {
-                   System.out.println(parameter);
-                   return -1;
+                    System.out.println(parameter);
+                    return -1;
                 }
             }
-            
-            GuiComponent guiComponent = new GuiComponent(args[0],textLabel);
+            GuiComponent guiComponent = new GuiComponent(args[0], textLabel);
             guiNodes.add(guiComponent.getNode());
-
             return 1;
         } else {
             System.out.println(line);

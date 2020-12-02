@@ -24,21 +24,22 @@ public class RTExecutors {
         
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         
-        int WINDOW_SIZE = 10;
+        int windowSize = 10;
         
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Platform.runLater(() -> {
                 double value = 0;
                 Date now = new Date();
                 if (sysInfoCall.equals("cpu_usage")) {
-                     value = SysInfo.getCpuLoad();
-                } else if (sysInfoCall.equals("system_memory")){
+                    value = SysInfo.getCpuLoad();
+                } else if (sysInfoCall.equals("system_memory")) {
                     value = SysInfo.getDriveMemory();
                 }
                 series.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), value));
                 
-                if (series.getData().size() > WINDOW_SIZE)
+                if (series.getData().size() > windowSize) {
                     series.getData().remove(0);
+                }
             });
         }, 0, 500, TimeUnit.MILLISECONDS);
         
@@ -53,8 +54,8 @@ public class RTExecutors {
                 
                 double value = 0;
                 if (sysInfoCall.equals("cpu_usage")) {
-                     value = SysInfo.getCpuLoad();
-                } else if (sysInfoCall.equals("system_memory")){
+                    value = SysInfo.getCpuLoad();
+                } else if (sysInfoCall.equals("system_memory")) {
                     value = SysInfo.getDriveMemory();
                 }
                 
@@ -69,7 +70,7 @@ public class RTExecutors {
 
     public static void shutdownAll() {
         scheduledExecutorServices.forEach((component) -> {
-        component.shutdown();
+            component.shutdown();
         });
     }
     

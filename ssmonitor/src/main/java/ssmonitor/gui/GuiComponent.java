@@ -32,7 +32,7 @@ public class GuiComponent {
             node = RTNodes.lineChart(componentName);
         }
         System.out.println(text);
-        if(text != null && !text.isEmpty()) {
+        if (text != null && !text.isEmpty()) {
             node = new HBox(new Label(this.text), node);
             
         }
