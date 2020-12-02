@@ -10,3 +10,5 @@ Sovelluksen tarkoituksena on auttaa käyttäjää seuraamaan systeeminsä erinä
 [Työaikakirjanpito](https://github.com/WitCanStain/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 [Luokkakaavio](https://github.com/WitCanStain/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+[Viikko 5 release](https://github.com/WitCanStain/ot-harjoitustyo/releases/tag/viikko5)
