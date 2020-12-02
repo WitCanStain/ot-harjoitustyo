@@ -1,7 +1,6 @@
 
 package ssmonitor.gui;
 
-import ssmonitor.gui.RTNodes;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;

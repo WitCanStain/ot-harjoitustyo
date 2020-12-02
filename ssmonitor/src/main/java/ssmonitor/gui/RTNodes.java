@@ -8,7 +8,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.ProgressBar;
-import ssmonitor.sysinfo.SysInfo;
+
 import ssmonitor.sysinfo.RTExecutors;
 
 // this class contains various methods for creating and returning javafx nodes

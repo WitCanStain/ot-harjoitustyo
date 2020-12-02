@@ -21,7 +21,7 @@ public class SysInfo {
         File file = new File("/");
         double freeMemory = file.getFreeSpace();
         double totalMemory = file.getTotalSpace();
-        System.out.println("free memory:" + freeMemory);
+        
         return freeMemory / totalMemory;
     }
     
