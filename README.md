@@ -16,5 +16,7 @@ Sovelluksen tarkoituksena on auttaa käyttäjää seuraamaan systeeminsä erinä
 # Ohjeita
 
 Testaus: mvn test, mvn test jacoco:report
+
 CheckStyle: mvn jxr:jxr checkstyle:checkstyle
+
 Jarin generointi: mvn package
