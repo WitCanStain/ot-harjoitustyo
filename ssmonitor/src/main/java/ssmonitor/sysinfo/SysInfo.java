@@ -11,11 +11,7 @@ public class SysInfo {
         
     }
 
-    public static long getFreeMemory() {
-        Runtime r = Runtime.getRuntime();
-        var memory = r.freeMemory();
-        return memory;
-    }
+    
     
     public static double getDriveMemory() {
         File file = new File("/");

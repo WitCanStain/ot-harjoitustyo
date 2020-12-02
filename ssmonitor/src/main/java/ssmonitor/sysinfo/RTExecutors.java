@@ -33,7 +33,7 @@ public class RTExecutors {
                 if (sysInfoCall.equals("cpu_usage")) {
                      value = SysInfo.getCpuLoad();
                 } else if (sysInfoCall.equals("system_memory")){
-                    value = SysInfo.getFreeMemory();
+                    value = SysInfo.getDriveMemory();
                 }
                 series.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), value));
                 
@@ -71,6 +71,10 @@ public class RTExecutors {
         scheduledExecutorServices.forEach((component) -> {
         component.shutdown();
         });
+    }
+    
+    public static ArrayList<ScheduledExecutorService> getExecutorServices() {
+        return scheduledExecutorServices;
     }
 
 }
