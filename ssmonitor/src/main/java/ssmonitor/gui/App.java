@@ -1,16 +1,17 @@
 package ssmonitor.gui;
-
+import ssmonitor.sysinfo.RTExecutors;
 import ssmonitor.file.ParseConf;
 import java.util.ArrayList;
 import javafx.scene.Node;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.geometry.Insets;
 
 
 public class App extends Application {
-    
+    private ArrayList<Node> components;
 
     public static void main(String[] args) {
         launch(args);
@@ -23,19 +24,21 @@ public class App extends Application {
         
         
         ParseConf.readConf("./src/main/resources/exampleConf.conf");
-        ArrayList<Node> nodes = ParseConf.getNodes();
+        components = ParseConf.getNodes();
 
-        GridPane gridpane = new GridPane();
+        VBox vbox = new VBox();
         
-        for (int i = 0; i < nodes.size(); i++) {
-            gridpane.add(nodes.get(i), 0, i, 1, 1);
+        for (Node component : components) {
+            vbox.getChildren().add(component);
         }
         
-        Scene scene = new Scene(gridpane, 300, 300);
-        
+        vbox.setPadding(new Insets(0));
+        vbox.setSpacing(0);
+        Scene scene = new Scene(vbox, 300, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
         
+        // fix scheduledexecutor
         
         
         
@@ -44,7 +47,10 @@ public class App extends Application {
     }
     @Override
     public void stop() throws Exception {
+        System.out.println("stopping");
+        RTExecutors.shutdownAll();
         super.stop();
+        
         
         
     }
