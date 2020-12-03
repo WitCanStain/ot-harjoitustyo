@@ -34,7 +34,8 @@ $cpu_usage|%cpu usage:
 $system_memory|%system memory:
 
 on pätevä konfiguraatio. Jos haluaa itse luoda konfiguraatiotiedoston, niin ohjelmaa ajaessa jarilla sille täytyy antaa konfiguraatiotiedoston polku:
-java -jar ssmonitor-1.0.jar "/polku/konfiguraatioon/tiedosto"
+java -jar ssmonitor-1.0.jar "/polku/konfiguraatioon/tiedosto". Huom! Tämänhetkinen github-jar-tiedosto ei mahdollista oman konfiguraatiotiedoston antamista, vaan jari täytyy generoida ja ajaa uudelleen.
+
 
 Testaus: mvn test, mvn test jacoco:report
 
