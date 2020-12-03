@@ -2,6 +2,7 @@ package ssmonitor.gui;
 import ssmonitor.sysinfo.RTExecutors;
 import ssmonitor.file.ParseConf;
 import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.Node;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -22,8 +23,19 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("ssmonitor");
         
+        Parameters params = getParameters();
+        List<String> list = params.getRaw();
+        System.out.println(list.size());
+        String fileName;
+        if (list.size() == 0) {
+            fileName = "./src/main/resources/exampleConf.conf";
+        } else {
+            fileName = list.get(0);
+        }
         
-        ParseConf.readConf("./src/main/resources/exampleConf.conf");
+        
+        //"./src/main/resources/exampleConf.conf"
+        ParseConf.readConf(fileName);
         components = ParseConf.getNodes();
 
         VBox vbox = new VBox();
@@ -38,7 +50,6 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         
-        // fix scheduledexecutor
         
         
         
@@ -55,3 +66,4 @@ public class App extends Application {
         
     }
 }
+

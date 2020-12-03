@@ -26,7 +26,7 @@ public class ParseConf {
                 statusFlag = parseLine(line);
                 if (statusFlag == -1) {
                     System.out.println("Invalid configuration file.");
-                    System.out.println(line);
+                    
                     break; //quit
                 }
             }
@@ -55,7 +55,7 @@ public class ParseConf {
                 } else if ((parameter.startsWith("%"))) {
                     textLabel = parameter.substring(1);
                 } else {
-                    System.out.println(parameter);
+                    
                     return -1;
                 }
             }
@@ -63,7 +63,7 @@ public class ParseConf {
             guiNodes.add(guiComponent.getNode());
             return 1;
         } else {
-            System.out.println(line);
+            
             return -1;
         }
     }
