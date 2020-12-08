@@ -39,8 +39,10 @@ on pätevä konfiguraatio. Jos haluaa itse luoda konfiguraatiotiedoston, niin oh
 java -jar ssmonitor-1.0.jar "/polku/konfiguraatioon/tiedosto". Huom! Tämänhetkinen github-jar-tiedosto ei mahdollista oman konfiguraatiotiedoston antamista, vaan jari täytyy generoida ja ajaa uudelleen.
 
 
-Testaus: mvn test, mvn test jacoco:report
+Testaus: `mvn test, mvn test jacoco:report`
 
-CheckStyle: mvn jxr:jxr checkstyle:checkstyle
+CheckStyle: `mvn jxr:jxr checkstyle:checkstyle`
 
-Jarin generointi: mvn package
+Jarin generointi: `mvn package`
+
+JavaDocin generointi: `mvn javadoc:javadoc`
