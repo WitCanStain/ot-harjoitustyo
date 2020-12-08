@@ -21,7 +21,7 @@ Perusversio tarjoaa seuraavanlaisia toimintoja:
 	- keskusmuistin tämänhetkinen käyttö
 	- läppäriä käytettäessä akun tila
 	- uptime eli kuinka pitkään järjestelmä on ollut käynnissä
-	- järjestelmän nimi
+	- järjestelmän nimi [tehty]
 	- top x lista tällä hetkellä käynnissä olevista prosesseista.
 	- [lisäksi tehty mahdollisuus määrittää näkymäkomponteille nimiä / asettaa tekstiä ikkunaan]
 
