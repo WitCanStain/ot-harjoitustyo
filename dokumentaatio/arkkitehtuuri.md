@@ -21,3 +21,4 @@ Sekvenssikaaviosta käy ilmi tapahtumasarja kun halutaan luoda viivakaavio joka 
 ![Creating a new lineChart depicting CPU usage(2)](https://user-images.githubusercontent.com/56148285/101542165-0e7a0280-39ab-11eb-9005-b84fa31383a3.png)
 
 
+Tulevaisuudessa sovellukselle lisätään myös mahdollisuus muokata konfiguraatiotiedostoa käyttöliittymästä käsin.
