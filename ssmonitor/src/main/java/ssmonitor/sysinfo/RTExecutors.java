@@ -14,11 +14,11 @@ import java.util.ArrayList;
 // it will also shut down each thread when the user closes the program.
 public class RTExecutors {
     
-    private static ArrayList<ScheduledExecutorService> scheduledExecutorServices = new ArrayList<ScheduledExecutorService>();
+    final private static ArrayList<ScheduledExecutorService> scheduledExecutorServices = new ArrayList<ScheduledExecutorService>();
     
     
     
-    public static void executorService(XYChart.Series<String, Number> series, String sysInfoCall) {
+    public static void executorService(XYChart.Series<String, Number> series, int sysInfoCall, int refreshRate) {
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss:SS");
 
         
@@ -28,41 +28,31 @@ public class RTExecutors {
         
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Platform.runLater(() -> {
-                double value = 0;
+                
                 Date now = new Date();
-                if (sysInfoCall.equals("cpu_usage")) {
-                    value = SysInfo.getCpuLoad();
-                } else if (sysInfoCall.equals("system_memory")) {
-                    value = SysInfo.getDriveMemory();
-                }
+                double value = (double) SysInfo.getSysInfo(sysInfoCall);
                 series.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), value));
                 
                 if (series.getData().size() > windowSize) {
                     series.getData().remove(0);
                 }
             });
-        }, 0, 500, TimeUnit.MILLISECONDS);
+        }, 0, refreshRate, TimeUnit.MILLISECONDS);
         
         scheduledExecutorServices.add(scheduledExecutorService);
     }
     
-    public static void executorService(ProgressBar progressBar, String sysInfoCall) {
+    public static void executorService(ProgressBar progressBar, int sysInfoCall, int refreshRate) {
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Platform.runLater(() -> {
                 
-                double value = 0;
-                if (sysInfoCall.equals("cpu_usage")) {
-                    value = SysInfo.getCpuLoad();
-                } else if (sysInfoCall.equals("system_memory")) {
-                    value = SysInfo.getDriveMemory();
-                }
-                
+                double value = (double) SysInfo.getSysInfo(sysInfoCall);
                 progressBar.setProgress(value);
                 
             });
-        }, 0, 1000, TimeUnit.MILLISECONDS);
+        }, 0, refreshRate, TimeUnit.MILLISECONDS);
         
         scheduledExecutorServices.add(scheduledExecutorService);
     }

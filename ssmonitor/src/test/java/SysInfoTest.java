@@ -41,13 +41,13 @@ public class SysInfoTest {
     
     @Test
     public void driveMemoryReturnsValue() {
-        double value = SysInfo.getDriveMemory();
+        double value = SysInfo.getDriveMemoryPc();
         assertTrue(value <= 1 && value >= 0);
     }
     
     @Test
     public void cpuLoadReturnsPercentage() {
-        double value = SysInfo.getCpuLoad();
+        double value = SysInfo.getCPULoad();
         assertTrue(value <= 1 && value >= 0);
     }
 
@@ -67,7 +67,7 @@ public class SysInfoTest {
     
     @Test
     public void inititalExecutorsNone() {
-        assertTrue(RTExecutors.getExecutorServices().size() == 0);
+        assertTrue(RTExecutors.getExecutorServices().isEmpty());
     }
     
     

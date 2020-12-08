@@ -1,65 +1,56 @@
 
 package ssmonitor.gui;
-
+import ssmonitor.sysinfo.SysInfo;
+import java.util.Objects;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
+import java.util.ArrayList;
 
 
 
 public class GuiComponent {
-    
-    private final String componentName;
-    private String text = "";
-    private Node node;
-    public GuiComponent(String component) {
-        this.componentName = component;
-        nodeConstructor();
-    }
-    
-    public GuiComponent(String component, String textLabel) {
-        this.componentName = component;
-        this.text = textLabel;
-        nodeConstructor();
-    }
+    private static ArrayList<Node> guiNodes = new ArrayList<Node>();
     
     
-    private void nodeConstructor() {
+    
+    public static void constructNode(String sysInfoComponent, String textLabel, String presentationType, int refreshRate) {
         
-        if (componentName.equals("system_memory")) {
-            node = RTNodes.progressBar(componentName);
-        } else if (componentName.equals("cpu_usage")) {
-            node = RTNodes.lineChart(componentName);
+        if (Objects.isNull(sysInfoComponent) && !Objects.isNull(textLabel)) {
+            guiNodes.add(new Label(textLabel));
+        } else if (!Objects.isNull(presentationType)) {
+            if (presentationType.equals("linechart")) {
+                guiNodes.add(new HBox(new Label(textLabel), RTNodes.lineChart(sysInfoCallDecider(sysInfoComponent), refreshRate)));
+            } else if (presentationType.equals("progressbar")) {
+                guiNodes.add(new HBox(new Label(textLabel), RTNodes.progressBar(sysInfoCallDecider(sysInfoComponent), refreshRate)));
+            }
+        } else if (Objects.isNull(presentationType)) {
+            guiNodes.add(new HBox(new Label(textLabel), new Label(SysInfo.getSystemProperty(sysInfoComponent))));
         }
-        System.out.println(text);
-        if (text != null && !text.isEmpty()) {
-            node = new HBox(new Label(this.text), node);
-            
-        }
-    }
-    
-    private Node nodeConstructorHelper() {
         
-        if (componentName.equals("cpu_usage")) {
-            return RTNodes.lineChart(componentName);
-        } else if (componentName.equals("system_memory")) {
-            return null;
-            //return systemMemory();
-        } else {
-            return null;
-        }
+        
+        
+        
+    }
+    
+    private static int sysInfoCallDecider(String sysInfoComponent) {
+        if (sysInfoComponent.equals("cpu_usage")) {
+                return 1;
+            } else if (sysInfoComponent.equals("system_memory")) {
+                return 2;
+            } else if (sysInfoComponent.equals("total_memory")) {
+                return 3;
+            } else {
+                System.out.println("Invalid configuration file: sysInfoComponent not numerical.");
+                System.exit(0);
+                return 0;
+            }
     }
     
     
     
-    
-    
-    public String getName() {
-        return this.componentName;
-    }
-    
-    public Node getNode() {
-        return node;
+    public static ArrayList<Node> getNodes() {
+        return guiNodes;
     }
     
     

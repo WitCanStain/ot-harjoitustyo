@@ -2,6 +2,7 @@
 package ssmonitor.gui;
 
 
+import java.util.Objects;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -14,7 +15,11 @@ import ssmonitor.sysinfo.RTExecutors;
 // this class contains various methods for creating and returning javafx nodes
 public class RTNodes {
     
-    public static LineChart<String, Number> lineChart(String sysInfoCall) {
+    public static LineChart<String, Number> lineChart(int sysInfoCall, int refreshRate) {
+        
+        if (Objects.isNull(refreshRate)) {
+            refreshRate = 500;
+        }
         final CategoryAxis xAxis = new CategoryAxis(); 
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setAnimated(false); 
@@ -35,17 +40,20 @@ public class RTNodes {
         parent = (Pane) yAxis.getParent();
         parent.getChildren().removeAll(yAxis);
         lineChart.getData().add(series);
-        RTExecutors.executorService(series, sysInfoCall);
+        RTExecutors.executorService(series, sysInfoCall, refreshRate);
         return lineChart;
         
     }
     
-    public static ProgressBar progressBar(String sysInfoCall) {
+    public static ProgressBar progressBar(int sysInfoCall, int refreshRate) {
+        if (Objects.isNull(refreshRate)) {
+            refreshRate = 500;
+        }
         
         ProgressBar progressBar = new ProgressBar();
         
         progressBar.setPrefWidth(300);
-        RTExecutors.executorService(progressBar, sysInfoCall);
+        RTExecutors.executorService(progressBar, sysInfoCall, refreshRate);
         return progressBar;
     }
     

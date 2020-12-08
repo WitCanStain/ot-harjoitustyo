@@ -36,7 +36,7 @@ public class App extends Application {
         
         //"./src/main/resources/exampleConf.conf"
         ParseConf.readConf(fileName);
-        components = ParseConf.getNodes();
+        components = GuiComponent.getNodes();
 
         VBox vbox = new VBox();
         
