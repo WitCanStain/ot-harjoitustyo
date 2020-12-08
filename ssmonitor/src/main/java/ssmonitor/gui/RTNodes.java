@@ -12,9 +12,18 @@ import javafx.scene.control.ProgressBar;
 
 import ssmonitor.sysinfo.RTExecutors;
 
-// this class contains various methods for creating and returning javafx nodes
+/**
+ * This class contains various methods for creating and returning javaFX nodes
+ * @author ruby
+ */
 public class RTNodes {
     
+    /**
+     * Creates a lineChart according to given parameters.
+     * @param sysInfoCall The information the user wants to see
+     * @param refreshRate How often the information should be updated
+     * @return The lineChart created according to parameters.
+     */
     public static LineChart<String, Number> lineChart(int sysInfoCall, int refreshRate) {
         
         if (Objects.isNull(refreshRate)) {
@@ -44,7 +53,13 @@ public class RTNodes {
         return lineChart;
         
     }
-    
+    /**
+     * Creates a progressBar according to given parameters.
+     * @param sysInfoCall The information the user wants to see
+     * @param refreshRate How often the information should be updated
+     * @return The progressBar created according to parameters.
+     * 
+     */
     public static ProgressBar progressBar(int sysInfoCall, int refreshRate) {
         if (Objects.isNull(refreshRate)) {
             refreshRate = 500;

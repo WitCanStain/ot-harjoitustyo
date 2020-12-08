@@ -8,12 +8,21 @@ import javafx.scene.control.Label;
 import java.util.ArrayList;
 
 
-
+/**
+ * Methods in this class create new nodes for the javaFX stage.
+ * @author ruby
+ */
 public class GuiComponent {
     private static ArrayList<Node> guiNodes = new ArrayList<Node>();
     
     
-    
+    /**
+     * Issues a request to create a new node according given parameters.
+     * @param sysInfoComponent The information the user wants to see
+     * @param textLabel Possible text to accompany the information
+     * @param presentationType The way in which the information is displayed
+     * @param refreshRate How often the information should be updated
+     */
     public static void constructNode(String sysInfoComponent, String textLabel, String presentationType, int refreshRate) {
         
         if (Objects.isNull(sysInfoComponent) && !Objects.isNull(textLabel)) {
@@ -32,19 +41,22 @@ public class GuiComponent {
         
         
     }
-    
+    /**
+     * Checks which information type should be fetched.
+     * @param sysInfoComponent The information the user wants to see
+     * @return A numerical code for the desired information
+     */
     private static int sysInfoCallDecider(String sysInfoComponent) {
         if (sysInfoComponent.equals("cpu_usage")) {
-                return 1;
-            } else if (sysInfoComponent.equals("system_memory")) {
-                return 2;
-            } else if (sysInfoComponent.equals("total_memory")) {
-                return 3;
-            } else {
-                System.out.println("Invalid configuration file: sysInfoComponent not numerical.");
-                System.exit(0);
-                return 0;
-            }
+            return 1;
+        } else if (sysInfoComponent.equals("system_memory")) {
+            return 2;
+        } else if (sysInfoComponent.equals("total_memory")) {
+            return 3;
+        } else {
+            System.out.println("Invalid configuration file: sysInfoComponent not numerical.");
+            return 0;
+        }
     }
     
     

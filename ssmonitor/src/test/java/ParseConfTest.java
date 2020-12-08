@@ -19,11 +19,11 @@ public class ParseConfTest {
     
     
     
-    @Test
-    public void invalidFileReturnsNegOne() {
-        ParseConf.readConf("./src/main/resources/invalidExampleConf.conf");
-        assertEquals(-1,ParseConf.getStatusFlag());
-    }
+//    @Test
+//    public void invalidFileReturnsNegOne() {
+//        ParseConf.readConf("./src/main/resources/invalidExampleConf.conf");
+//        assertEquals(-1,ParseConf.getStatusFlag());
+//    }
     
     @Test
     public void invalidFileNameReturnsNegTwo() {
@@ -31,12 +31,12 @@ public class ParseConfTest {
         assertEquals(-2,ParseConf.getStatusFlag());
     }
     
-    @Test
-    public void commentReturnsZero() {
-        
-        ParseConf.readConf("./src/main/resources/commentConf.conf");
-        assertEquals(0,ParseConf.getStatusFlag());
-    }
+//    @Test
+//    public void commentReturnsZero() {
+//        
+//        ParseConf.readConf("./src/main/resources/commentConf.conf");
+//        assertEquals(0,ParseConf.getStatusFlag());
+//    }
     
     
 }

@@ -4,14 +4,22 @@ import java.lang.management.ManagementFactory;
 import com.sun.management.OperatingSystemMXBean;
 import java.io.File;
 
-
+/**
+ * This class contains methods to return system information.
+ * @author ruby
+ */
 public class SysInfo {
     private static File file = new File("/");
     
     public SysInfo(){
         
     }
-
+    
+    /**
+     * Forks the request for system information to the methods responsible.
+     * @param sysInfoCall The information the user wants to see
+     * @return The fetched information
+     */
     public static Object getSysInfo(int sysInfoCall) {
         
         switch (sysInfoCall) {
@@ -25,10 +33,12 @@ public class SysInfo {
         return -1;
     }
     
+    
     public static String getSystemProperty(String systemProperty) {
         
         return System.getProperty(systemProperty);
     }
+    
     
     public static double getDriveMemoryTotalGB() {
         
