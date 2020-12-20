@@ -175,7 +175,7 @@ public class App extends Application {
     public void stop() throws Exception {
         System.out.println("stopping");
         RTExecutors.shutdownAll();
-        super.stop();
+        
         
         
         

@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import java.util.ArrayList;
 import java.util.Properties;
 import javafx.scene.text.Text;
+import ssmonitor.sysinfo.RTExecutors;
 
 
 /**
@@ -70,6 +71,7 @@ public class GuiComponent {
             return 6;
         } else {
             System.out.println("Invalid configuration file: sysInfoComponent not numerical.");
+            RTExecutors.shutdownAll();
             return 0;
         }
     }

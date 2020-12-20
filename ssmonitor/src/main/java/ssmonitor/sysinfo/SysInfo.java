@@ -75,9 +75,11 @@ public class SysInfo {
             return totalMemory / 1073741824.0;
         } catch (NumberFormatException e) {
             System.out.println("Something went wrong!");
+            RTExecutors.shutdownAll();
         }
         } catch (IOException e) {
             System.out.println("Something went wrong!");
+            RTExecutors.shutdownAll();
         }
         return -1.0;
     }
@@ -90,9 +92,11 @@ public class SysInfo {
             return freeMemory / 1073741824.0;
         } catch (NumberFormatException e) {
             System.out.println("Something went wrong!");
+            RTExecutors.shutdownAll();
         }
         } catch (IOException e) {
             System.out.println("Something went wrong!");
+            RTExecutors.shutdownAll();
         }
         return -1.0;
     }
@@ -110,9 +114,11 @@ public class SysInfo {
             return 1 - freeMemory / (double) totalMemory;
         } catch (NumberFormatException e) {
             System.out.println("Something went wrong!");
+            RTExecutors.shutdownAll();
         }
         } catch (IOException e) {
             System.out.println("Something went wrong!");
+            RTExecutors.shutdownAll();
         }
         return -1.0;
     }

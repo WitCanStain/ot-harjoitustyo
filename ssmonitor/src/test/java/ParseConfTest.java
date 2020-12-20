@@ -25,11 +25,11 @@ public class ParseConfTest {
 //        assertEquals(-1,ParseConf.getStatusFlag());
 //    }
     
-    @Test
-    public void invalidFileNameReturnsNegTwo() {
-        ParseConf.readConf("./src/main/resources/inexistent.conf");
-        assertEquals(-2,ParseConf.getStatusFlag());
-    }
+//    @Test
+//    public void invalidFileNameReturnsNegTwo() {
+//        ParseConf.readConf("./src/main/resources/inexistent.conf");
+//        assertEquals(-2,ParseConf.getStatusFlag());
+//    }
     
 //    @Test
 //    public void commentReturnsZero() {

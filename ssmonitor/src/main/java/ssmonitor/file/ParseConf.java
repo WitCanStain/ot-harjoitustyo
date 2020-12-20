@@ -1,6 +1,7 @@
 
 package ssmonitor.file;
 import ssmonitor.gui.GuiComponent;
+import ssmonitor.sysinfo.RTExecutors;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -47,8 +48,9 @@ public class ParseConf {
             
         } catch (FileNotFoundException e) {
             System.out.println("Please choose a valid filename.");  
+            RTExecutors.shutdownAll();
             statusFlag = -2; // quit
-            return;
+            
         }
     }
     
@@ -57,7 +59,7 @@ public class ParseConf {
      * new nodes.
      * @param line A line from the configuration file
      */
-    public static void parseLine(final String line) {
+    public static void parseLine(String line) {
 
         if (line.startsWith("//") || line.trim().length() == 0) {
             return;
@@ -67,8 +69,10 @@ public class ParseConf {
             String textLabel = null;
             String presentationType = null;
             String refreshRate = null;
-            
-            String[] parameters = line.substring(1).split("\\|", 0);
+            if (line.startsWith("|")) {
+                line = line.substring(1);
+            }
+            String[] parameters = line.split("\\|", 0);
             
             // parsing the configuration and checking parameter validity
             for (String parameter : parameters) {
@@ -86,17 +90,17 @@ public class ParseConf {
                     checkParameter("refreshRate", refreshRate);
                 } else {
                     System.out.println("Invalid configuration file: parameter not recognized.");
-                    System.out.println(parameter);
-                    return;
+                    RTExecutors.shutdownAll();
                 }
             }
             
             if (Objects.isNull(sysInfoComponent) && (!Objects.isNull(presentationType) || !Objects.isNull(refreshRate))) {
                 System.out.println("Invalid configuration file: sysInfoComponent parameters without sysInfoComponent.");
-                return;
+                RTExecutors.shutdownAll();
             } else if (Objects.isNull(sysInfoComponent) && Objects.isNull(textLabel)) {
                 System.out.println("Invalid configuration file: no label or sysInfoComponent provided.");
-                return;
+                RTExecutors.shutdownAll();
+                
             }
             int refreshRateAsInt = 500;
             if (!(Objects.isNull(refreshRate))) {
@@ -136,6 +140,7 @@ public class ParseConf {
             fileWriter.close();
         } catch (IOException e) {
             System.out.println("Error - did you delete the configuration file?");
+            RTExecutors.shutdownAll();
         }
     }
     
@@ -148,6 +153,7 @@ public class ParseConf {
         
         if (parameterType.equals("presentationType") && !presentationTypes.contains(parameterValue)) {
             System.out.println("Invalid configuration file: presentation_type value not recognized.");
+            RTExecutors.shutdownAll();
         } else if (parameterType.equals("refreshRate")) {
             int parameterValueAsInt = -1;
             try {
@@ -155,16 +161,19 @@ public class ParseConf {
             }
             catch (NumberFormatException e) {
                 System.out.println("Invalid configuration file: refresh_rate value not a number.");
-                System.exit(0);
+                
+                RTExecutors.shutdownAll();
                 return;
             }
             if (parameterValueAsInt < 0) {
                 System.out.println("Invalid configuration file: refresh_rate value less than zero.");
-                return;
+                RTExecutors.shutdownAll();
+                
             }
         } else if ((parameterType.equals("sysInfoComponent") || parameterType.equals("text")) && !sysInfoComponents.contains(parameterValue)) {
             System.out.println("Invalid configuration file: sysinfocomponent not recognized.");
-            return;
+            RTExecutors.shutdownAll();
+            
         }
     }
 

@@ -94,6 +94,7 @@ public class RTExecutors {
         scheduledExecutorServices.forEach((component) -> {
             component.shutdown();
         });
+        Runtime.getRuntime().halt(0);
     }
     
     
