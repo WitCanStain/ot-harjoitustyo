@@ -12,6 +12,10 @@ valitsemalla saadaan erilaisia näkymiä.
 
 Sovelluksella on vain yksi käyttäjätyyppi, _normaali käyttäjä_.
 
+## Käyttöliittymä
+
+Sovelluksella on yksinkertainen käyttöliittymä: sovellus aukeaa komponenttinäkymään. Jos käyttäjä haluaa, hän voi lisätä valikon kautta lisää komponentteja. Tässä tilanteessa avautuu uusi ikkuna jossa käyttäjä syöttää komponentin parametrit.
+
 ## Perusversion tarjoama toiminnallisuus
 
 Perusversio tarjoaa seuraavanlaisia toimintoja:
