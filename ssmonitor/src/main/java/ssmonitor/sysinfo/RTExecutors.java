@@ -9,6 +9,8 @@ import javafx.application.Platform;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ProgressBar;
 import java.util.ArrayList;
+import javafx.scene.text.Text;
+
 
 /**
  * this class will create ScheduledExecutorServices as requested to update node data in Real Time.
@@ -36,7 +38,6 @@ public class RTExecutors {
         
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Platform.runLater(() -> {
-                
                 Date now = new Date();
                 double value = (double) SysInfo.getSysInfo(sysInfoCall);
                 series.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), value));
@@ -64,6 +65,21 @@ public class RTExecutors {
                 
                 double value = (double) SysInfo.getSysInfo(sysInfoCall);
                 progressBar.setProgress(value);
+                
+            });
+        }, 0, refreshRate, TimeUnit.MILLISECONDS);
+        
+        scheduledExecutorServices.add(scheduledExecutorService);
+    }
+    
+    public static void executorService(Text text, int sysInfoCall, int refreshRate) {
+        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+        
+        scheduledExecutorService.scheduleAtFixedRate(() -> {
+            Platform.runLater(() -> {
+                
+                String value = String.valueOf(SysInfo.getSysInfo(sysInfoCall));
+                text.setText(value);
                 
             });
         }, 0, refreshRate, TimeUnit.MILLISECONDS);

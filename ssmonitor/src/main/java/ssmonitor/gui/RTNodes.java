@@ -7,8 +7,8 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.layout.Pane;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.Text;
 
 import ssmonitor.sysinfo.RTExecutors;
 
@@ -30,25 +30,30 @@ public class RTNodes {
             refreshRate = 500;
         }
         final CategoryAxis xAxis = new CategoryAxis(); 
-        final NumberAxis yAxis = new NumberAxis();
-        xAxis.setAnimated(false); 
-        yAxis.setAnimated(false);
+        final NumberAxis yAxis = new NumberAxis(0.0, 1.0, 1);
+        
         final LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
-        lineChart.setAnimated(false);
-        yAxis.setAutoRanging(true);
-        yAxis.setForceZeroInRange(false);
+        
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         // We want the line graph and nothing else
-        lineChart.setLegendVisible(false);
+        lineChart.setMinHeight(70);
+        lineChart.setMaxHeight(70);
+        lineChart.setAnimated(false);
+        yAxis.setAutoRanging(false);
+        yAxis.setForceZeroInRange(false);
+        xAxis.setAnimated(false); 
+        yAxis.setAnimated(false);
+        lineChart.setLegendVisible(true);
         lineChart.setCreateSymbols(false);
         lineChart.setHorizontalGridLinesVisible(false);
         lineChart.setVerticalGridLinesVisible(false);
-        lineChart.setHorizontalZeroLineVisible(false);
-        Pane parent = (Pane) xAxis.getParent();
-        parent.getChildren().removeAll(xAxis);  
-        parent = (Pane) yAxis.getParent();
-        parent.getChildren().removeAll(yAxis);
+        lineChart.setHorizontalZeroLineVisible(true);
+        lineChart.getYAxis().setTickLabelsVisible(false);
+        lineChart.getYAxis().setOpacity(0);
+        lineChart.getXAxis().setTickLabelsVisible(false);
+        lineChart.getXAxis().setOpacity(0);
         lineChart.getData().add(series);
+        
         RTExecutors.executorService(series, sysInfoCall, refreshRate);
         return lineChart;
         
@@ -70,6 +75,16 @@ public class RTNodes {
         progressBar.setPrefWidth(300);
         RTExecutors.executorService(progressBar, sysInfoCall, refreshRate);
         return progressBar;
+    }
+    
+    public static Text text(int sysInfoCall, int refreshRate) {
+        if (Objects.isNull(refreshRate)) {
+            refreshRate = 500;
+        }
+        
+        Text text = new Text();
+        RTExecutors.executorService(text, sysInfoCall, refreshRate);
+        return text;
     }
     
     
