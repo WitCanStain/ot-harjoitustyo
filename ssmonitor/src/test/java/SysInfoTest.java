@@ -1,4 +1,5 @@
 
+import java.util.Objects;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -7,9 +8,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import ssmonitor.sysinfo.SysInfo;
 import ssmonitor.sysinfo.RTExecutors;
-import javafx.scene.chart.LineChart;
-import ssmonitor.gui.RTNodes;
-import ssmonitor.gui.Main;
 
 
 public class SysInfoTest {
@@ -50,20 +48,37 @@ public class SysInfoTest {
         double value = SysInfo.getCPULoad();
         assertTrue(value <= 1 && value >= 0);
     }
-
-    /* this test cannot be run because it requires the JavaFX runtime to be
-    started. One solution would be to force the runtime to start using JFXPanel,
-    but I cannot find a way to import the relevant package. If I try to start
-    the runtime by starting the application, it never exits the main method and
-    so the test is never run. Therefore, I can't find a good way to test all 
-    the functionality in the RTExecutors class.
-    */   
-//    @Test
-//    public void executorThreadisCreated() {
-
-//        LineChart lineChart = RTNodes.lineChart("cpu_usage");
-//        assertTrue(RTExecutors.getExecutorServices().size() == 1);
-//    }
+    
+    @Test
+    public void freeRAMLessThanTotalRAM() {
+        assertTrue(SysInfo.getFreeRAMMemory()<SysInfo.getTotalRAMMemory());
+    }
+    
+    @Test
+    public void getSysInfoReturnsValue() {
+        Double value = (double) SysInfo.getSysInfo(1);
+        assertTrue(!Objects.isNull(value));
+        value = (double) SysInfo.getSysInfo(2);
+        assertTrue(!Objects.isNull(value));
+        value = (double) SysInfo.getSysInfo(3);
+        assertTrue(!Objects.isNull(value));
+        value = (double) SysInfo.getSysInfo(4);
+        assertTrue(!Objects.isNull(value));
+        value = (double) SysInfo.getSysInfo(5);
+        assertTrue(!Objects.isNull(value));
+        value = (double) SysInfo.getSysInfo(6);
+        assertTrue(!Objects.isNull(value));
+    }
+    
+    @Test
+    public void getDriveMemoryGBReturnsValueGreaterThanOne() {
+        assertTrue(SysInfo.getDriveMemoryTotalGB()>0);
+    }
+    
+    @Test
+    public void getDriveMemoryPcReturnsPercentage() {
+        assertTrue(SysInfo.getDriveMemoryPc()>=0 && SysInfo.getDriveMemoryPc()<=1);
+    }
     
     @Test
     public void inititalExecutorsNone() {

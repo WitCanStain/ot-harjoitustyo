@@ -57,7 +57,7 @@ public class App extends Application {
         
         menuBar.getMenus().add(menu);
         
-        ParseConf.readConf(fileName);
+        ParseConf.readConf(fileName, 0);
         components = GuiComponent.getNodes();
 
         VBox vbox = new VBox(menuBar);

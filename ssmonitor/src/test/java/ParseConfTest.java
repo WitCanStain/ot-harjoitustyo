@@ -1,12 +1,10 @@
 
 
 
+import ssmonitor.file.ParseConf;
 import org.junit.Before;
 import org.junit.Test;
-import ssmonitor.file.ParseConf;
 import static org.junit.Assert.*;
-
-
 public class ParseConfTest {
     
     public ParseConfTest() {
@@ -19,24 +17,27 @@ public class ParseConfTest {
     
     
     
-//    @Test
-//    public void invalidFileReturnsNegOne() {
-//        ParseConf.readConf("./src/main/resources/invalidExampleConf.conf");
-//        assertEquals(-1,ParseConf.getStatusFlag());
-//    }
     
+   
+
 //    @Test
-//    public void invalidFileNameReturnsNegTwo() {
-//        ParseConf.readConf("./src/main/resources/inexistent.conf");
-//        assertEquals(-2,ParseConf.getStatusFlag());
+//    public void confLineCreatesNode() {
+//        ParseConf.parseLine("$cpu_usage|presentation_type=linechart", 1);
+//        assertEquals(ParseConf.getNodes().size(), 1);
 //    }
+
     
-//    @Test
-//    public void commentReturnsZero() {
-//        
-//        ParseConf.readConf("./src/main/resources/commentConf.conf");
-//        assertEquals(0,ParseConf.getStatusFlag());
-//    }
     
+    @Test
+    public void invalidConfigurationReturnsNegOne() {
+        ParseConf.parseLine("invalid conf", 1);
+        assertEquals(-1,ParseConf.getStatusFlag());
+    }
+    @Test
+    public void invalidFileNameReturnsNegTwo() {
+        ParseConf.readConf("./src/main/resources/inexistent.conf",1);
+        assertEquals(-2,ParseConf.getStatusFlag());
+    }
     
 }
+

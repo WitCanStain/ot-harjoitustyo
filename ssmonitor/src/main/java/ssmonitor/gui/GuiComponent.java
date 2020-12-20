@@ -29,7 +29,6 @@ public class GuiComponent {
      */
     public static void constructNode(String sysInfoComponent, String textLabel, String presentationType, int refreshRate) {
         Text label = new Text (textLabel);
-//        label.setWrapText(true);
         
         if (Objects.isNull(sysInfoComponent) && !Objects.isNull(textLabel)) {
             guiNodes.add(label);
@@ -56,7 +55,7 @@ public class GuiComponent {
      * @param sysInfoComponent The information the user wants to see
      * @return A numerical code for the desired information
      */
-    private static int sysInfoCallDecider(String sysInfoComponent) {
+    public static int sysInfoCallDecider(String sysInfoComponent) {
         if (sysInfoComponent.equals("cpu_usage")) {
             return 1;
         } else if (sysInfoComponent.equals("drive_memory_percentage")) {
@@ -64,7 +63,7 @@ public class GuiComponent {
         } else if (sysInfoComponent.equals("drive_memory_total")) {
             return 3;
         } else if (sysInfoComponent.equals("ram_total")) {
-            return 4;
+            return 4;   
         } else if (sysInfoComponent.equals("ram_free")) {
             return 5;
         } else if (sysInfoComponent.equals("ram_usage_percentage")) {

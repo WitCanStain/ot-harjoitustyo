@@ -32,7 +32,7 @@ public class ParseConf {
      * Reads the configuration file.
      * @param filePath the file to be read
      */
-    public static void readConf(final String filePath) {
+    public static void readConf(final String filePath, int testFlag) {
         
         try {
             File confFile = new File(filePath);
@@ -41,15 +41,19 @@ public class ParseConf {
             while (reader.hasNextLine()) {
                 
                 String line = reader.nextLine();
-                parseLine(line);
+                parseLine(line, 0);
             }
             
             reader.close();
             
         } catch (FileNotFoundException e) {
             System.out.println("Please choose a valid filename.");  
-            RTExecutors.shutdownAll();
-            statusFlag = -2; // quit
+            statusFlag = -2;
+            if (!(testFlag == 1)) {
+                RTExecutors.shutdownAll();
+            }
+            
+            
             
         }
     }
@@ -59,7 +63,7 @@ public class ParseConf {
      * new nodes.
      * @param line A line from the configuration file
      */
-    public static void parseLine(String line) {
+    public static void parseLine(String line, int testFlag) {
 
         if (line.startsWith("//") || line.trim().length() == 0) {
             return;
@@ -90,23 +94,36 @@ public class ParseConf {
                     checkParameter("refreshRate", refreshRate);
                 } else {
                     System.out.println("Invalid configuration file: parameter not recognized.");
-                    RTExecutors.shutdownAll();
+                    statusFlag = -1;
+                    if (!(testFlag==1)) {
+                        RTExecutors.shutdownAll();
+                    }
+                    
                 }
             }
             
             if (Objects.isNull(sysInfoComponent) && (!Objects.isNull(presentationType) || !Objects.isNull(refreshRate))) {
                 System.out.println("Invalid configuration file: sysInfoComponent parameters without sysInfoComponent.");
-                RTExecutors.shutdownAll();
+                statusFlag = -1;
+                if (!(testFlag==1)) {
+                        RTExecutors.shutdownAll();
+                    }
             } else if (Objects.isNull(sysInfoComponent) && Objects.isNull(textLabel)) {
                 System.out.println("Invalid configuration file: no label or sysInfoComponent provided.");
-                RTExecutors.shutdownAll();
+                statusFlag = -1;
+                if (!(testFlag==1)) {
+                        RTExecutors.shutdownAll();
+                    }
                 
             }
             int refreshRateAsInt = 500;
             if (!(Objects.isNull(refreshRate))) {
                 refreshRateAsInt = Integer.parseInt(refreshRate);
             }
-            GuiComponent.constructNode(sysInfoComponent, textLabel, presentationType, refreshRateAsInt);
+            if (!(testFlag==1)) {
+                GuiComponent.constructNode(sysInfoComponent, textLabel, presentationType, refreshRateAsInt);
+            }
+            
             
         } 
     }
@@ -126,7 +143,7 @@ public class ParseConf {
             confLine = confLine + "|%" + guiParameters[3];
         }
         
-        parseLine(confLine);
+        parseLine(confLine, 0);
         if (modifyFile) {
             writeLine(confLine);
         }
@@ -140,6 +157,7 @@ public class ParseConf {
             fileWriter.close();
         } catch (IOException e) {
             System.out.println("Error - did you delete the configuration file?");
+            statusFlag = -3;
             RTExecutors.shutdownAll();
         }
     }
@@ -153,6 +171,7 @@ public class ParseConf {
         
         if (parameterType.equals("presentationType") && !presentationTypes.contains(parameterValue)) {
             System.out.println("Invalid configuration file: presentation_type value not recognized.");
+            statusFlag = -1;
             RTExecutors.shutdownAll();
         } else if (parameterType.equals("refreshRate")) {
             int parameterValueAsInt = -1;
@@ -161,25 +180,27 @@ public class ParseConf {
             }
             catch (NumberFormatException e) {
                 System.out.println("Invalid configuration file: refresh_rate value not a number.");
-                
+                statusFlag = -1;
                 RTExecutors.shutdownAll();
                 return;
             }
             if (parameterValueAsInt < 0) {
                 System.out.println("Invalid configuration file: refresh_rate value less than zero.");
+                statusFlag = -1;
                 RTExecutors.shutdownAll();
                 
             }
         } else if ((parameterType.equals("sysInfoComponent") || parameterType.equals("text")) && !sysInfoComponents.contains(parameterValue)) {
             System.out.println("Invalid configuration file: sysinfocomponent not recognized.");
+            statusFlag = -1;
             RTExecutors.shutdownAll();
             
         }
     }
 
-    public static ArrayList<Node> getNodes() {
-        return guiNodes;
-    }
+//    public static ArrayList<Node> getNodes() {
+//        return guiNodes;
+//    }
     
     
     public static int getStatusFlag() {

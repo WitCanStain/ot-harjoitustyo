@@ -88,13 +88,13 @@ public class RTExecutors {
     }
     
     /**
-     * Shuts down all the threads.
+     * Shuts down all the threads and exits.
      */
     public static void shutdownAll() {
         scheduledExecutorServices.forEach((component) -> {
             component.shutdown();
         });
-        Runtime.getRuntime().halt(0);
+        System.exit(0);
     }
     
     
