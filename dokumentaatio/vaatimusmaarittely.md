@@ -15,21 +15,20 @@ Sovelluksella on vain yksi käyttäjätyyppi, _normaali käyttäjä_.
 ## Perusversion tarjoama toiminnallisuus
 
 Perusversio tarjoaa seuraavanlaisia toimintoja:
-- käynnistyessä käyttäjä voi määrittää mitä tiedostoa käytetään parametritiedostona. Sovellus tallentaa myös tiedon oletustiedostosta.
+- käynnistyessä käyttäjä voi määrittää mitä tiedostoa käytetään parametritiedostona.
 - käyttäjä voi parametritiedosto(j)a muokkaamalla päättää, minkälaista toiminnallisuutta sovelluksen piirtämä ikkuna sisältää.
+- käyttäjä voi myös ohjelman graafisen käyttöliittymän avulla lisätä komponentteja näkymään sekä tallentaa muutokset parametritiedostoon.
 - perusversion näkymäkomponentteja:
-	- keskusmuistin tämänhetkinen käyttö
-	- läppäriä käytettäessä akun tila
-	- uptime eli kuinka pitkään järjestelmä on ollut käynnissä
-	- järjestelmän nimi [tehty]
-	- top x lista tällä hetkellä käynnissä olevista prosesseista.
-	- [lisäksi tehty mahdollisuus määrittää näkymäkomponteille nimiä / asettaa tekstiä ikkunaan]
+	- keskusmuistin tämänhetkinen käyttö ja keskumuistin tilavuus
+	- tämänhetkinen prosessorien käyttöaste
+	- erinäisiä systeemin ominaisuuksia, kuten käyttöjärjestelmän arkkitehtuuri ja nimi
+	- juurihakemiston tilavuus sekä käytetty tila
+	- käyttäjän määrittämää tekstiä
+	Näkymäkomponentit voi tyypistä riippuen ilmaista joko edistymispalkin, viivakaavion tai tekstin avulla. Käyttäjä voi määrittää millä tavalla tieto 		esitetään sekä kuinka usein tietoa päivitetään.
+	
 
 ## Jatkokehitysideoita
 
-- lisää parametrejä, kuten järjestelmän ip-osoite, prosessorin käyttöaste [tehty], levymuistin tila [tehty], järjestelmän kellonaika, top x lista tällä hetkellä käynnissä olevista prosesseista.
+Sovellusta voisi jatkokehittää lisäämällä useampia käyttäjän määrittämiä ominaisuuksia, kuten ip-osoitteen, latausnopeuden, tai tällä hetkellä käynnissä olevia prosesseja. Lisäksi voisi tulevaisuudessa lisätä drag-n-drop ominaisuuden, joka mahdollistaisi näkymäkomponettien siirtämisen hiiren avulla.
 
-- käyttäjä voi päättää käynnistetäänkö sovellus omassa ikkunassaan vai piiretäänkö se suoraan X11:n root-ikkunaan.
-- käyttäjä voi päättää komponenttien värin.
-- parametritiedostot toteutetaan tietokantana.
-- ohjelman vipujen avulla voi tehdä joitain muutoksia parametritiedostoon.
+
