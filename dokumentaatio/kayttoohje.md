@@ -12,11 +12,13 @@ Ohjelman käynnistetään käskyllä
 
 Ohjelma tukee seuraavien järjestelmätietojen näyttämistä: 
 
-´$cpu_usage, $system_memory, $total_memory, $os.name, $os.version, $user.name, $os.arch`
+cpu_usage, drive_memory_percentage, drive_memory_total, ram_usage_percentage, ram_free, ram_total, os.name, os.version, user.name, os.arch
+
+Eli prosessorin käyttöaste, juurihakemiston käyttöaste, juurihakemiston kokonaistilavuus, keskusmuistin käyttöaste, keskusmuistin tilavuus, käyttöjärjestelmän nimi, versio, käyttäjänimi sekä arkkitehtuuri.
 
 Sekä seuraavia esitysmuotoja:
 
-`presentation_type=linechart, presentation_type=progressbar`
+`presentation_type=linechart, presentation_type=progressbar, presentation_type=text`
 
 Sekä myös päivitysaikamääriä jotka ovat yli 0. Oletusarvo on 500.
 
@@ -45,4 +47,10 @@ Yksi mahdollinen konfiguraatiotiedosto olisi vaikka seuraava:
   `%User name: |$user.name`
   
   `%Operating system version: |$os.version`
+  
+Käyttäjä voi myös käyttöliittymän sisältä luoda uusia komponentteja valikon Create -> New Component kautta. Tässä tapauksessa käyttäjän tulee antaa ylläolevat tiedot suoraan sovellukselle.
+  
+Ohjelmaa käynnistäessä tulee sille antaa konfiguraatiotiedoston polku, eli esimerkiksi:
+
+`java -jar ssmonitor.jar "path/to/file`
 
