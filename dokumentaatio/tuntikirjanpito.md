@@ -7,3 +7,4 @@
 |02.12. |12 |Tehtiin luokkarakennetta järkevämmäksi, lisättiin toiminnallisuutta|
 |08.12. |8  |Ehostettiin luokkien toimintaa ja lisättii uusia konfiguraatiomahdollisuuksia|
 |20.12. |10 |Viimeisteltiin projektia|
+|Total  |41|
